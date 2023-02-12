@@ -7,7 +7,6 @@
     <title>Película</title>
 </head>
 <body>
-    <h1><?= esc($pelicula['titulo']) ?></h1>
-    <p><?= esc($pelicula['descripcion']) ?></p>
+    <h1><?= esc($categoria['titulo']) ?></h1>
 </body>
 </html>
