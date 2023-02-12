@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\PeliculaModel;
-use PhpParser\Builder\Function_;
 
 class Peliculas extends BaseController
 {
