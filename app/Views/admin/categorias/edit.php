@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar película</title>
+    <title>Actualizar Categoria</title>
 </head>
 <body>
-    <form action="/categorias/update/<?= $pelicula['id'] ?>" method="post">
-        <?= view('categorias/_form', ['action' => 'Actualizar']) ?>
+    <form action="/admin/categorias/update/<?= $categoria['id'] ?>" method="post">
+        <?= view('admin/categorias/_form', ['action' => 'Actualizar']) ?>
     </form>
 </body>
 </html>

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use App\Models\PeliculaModel;
+use App\Controllers\BaseController;
 
 class Peliculas extends BaseController
 {
@@ -10,20 +11,20 @@ class Peliculas extends BaseController
     {
         $peliculaModel = new PeliculaModel();
         
-        return view('peliculas/index', [
+        return view('admin/peliculas/index', [
             'peliculas' => $peliculaModel->findAll()
         ]);
     }
 
     public function new()
     {
-        return view('peliculas/new');
+        return view('admin/peliculas/new');
     }
 
     public function show($id)
     {
         $peliculaModel = new PeliculaModel();
-        return view('peliculas/show', [
+        return view('admin/peliculas/show', [
             'pelicula' => $peliculaModel->find($id)
         ]);
     }
@@ -35,13 +36,13 @@ class Peliculas extends BaseController
         $peliculaModel = new PeliculaModel();
         $peliculaModel->insert($data);
 
-        echo 'creado';
+        return redirect()->to('admin/peliculas');
     }
 
     public function edit($id)
     {
         $peliculaModel = new PeliculaModel();
-        return view('peliculas/edit', [
+        return view('admin/peliculas/edit', [
             'pelicula' => $peliculaModel->find($id)
         ]);
     }
@@ -55,7 +56,7 @@ class Peliculas extends BaseController
             'descripcion' => $this->request->getPost('descripcion')
         ]);
 
-        echo 'Actualizado';
+        return redirect()->back();
     }
 
     public function delete($id)
@@ -63,8 +64,6 @@ class Peliculas extends BaseController
         $peliculaModel = new PeliculaModel();
         $peliculaModel->delete($id);
 
-        echo 'eliminado';
+        return redirect()->back();
     }
-
-
 }

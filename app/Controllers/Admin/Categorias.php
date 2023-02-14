@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use App\Models\CategoriaModel;
+use App\Controllers\BaseController;
 
 class Categorias extends BaseController
 {
@@ -10,20 +11,20 @@ class Categorias extends BaseController
     {
         $categoriaModel = new CategoriaModel();
         
-        return view('categorias/index', [
+        return view('admin/categorias/index', [
             'categorias' => $categoriaModel->findAll()
         ]);
     }
 
     public function new()
     {
-        return view('categorias/new');
+        return view('admin/categorias/new');
     }
 
     public function show($id)
     {
         $categoriaModel = new CategoriaModel();
-        return view('categorias/show', [
+        return view('admin/categorias/show', [
             'categoria' => $categoriaModel->find($id)
         ]);
     }
@@ -35,13 +36,13 @@ class Categorias extends BaseController
         $categoriaModel = new CategoriaModel();
         $categoriaModel->insert($data);
 
-        echo 'creado';
+        return redirect()->to('admin/categorias');
     }
 
     public function edit($id)
     {
         $categoriaModel = new CategoriaModel();
-        return view('categorias/edit', [
+        return view('admin/categorias/edit', [
             'categoria' => $categoriaModel->find($id)
         ]);
     }
@@ -54,7 +55,7 @@ class Categorias extends BaseController
             'titulo' => $this->request->getPost('titulo')
         ]);
 
-        echo 'Actualizado';
+        return redirect()->back();
     }
 
     public function delete($id)
@@ -62,8 +63,6 @@ class Categorias extends BaseController
         $categoriaModel = new CategoriaModel();
         $categoriaModel->delete($id);
 
-        echo 'eliminado';
+        return redirect()->back();
     }
-
-
 }

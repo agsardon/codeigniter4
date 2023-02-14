@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear película</title>
+    <title>Actualizar película</title>
 </head>
 <body>
-    <h1>Nueva película</h1>
-    <form action="/peliculas/create" method="post">
-        <?= view('peliculas/_form', ['action' => 'Crear']) ?>
+    <form action="/admin/peliculas/update/<?= $pelicula['id'] ?>" method="post">
+        <?= view('admin/peliculas/_form', ['action' => 'Actualizar']) ?>
     </form>
 </body>
 </html>
