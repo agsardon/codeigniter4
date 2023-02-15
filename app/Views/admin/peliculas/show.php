@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1><?= esc($pelicula['titulo']) ?></h1>
+    <p><?= esc($pelicula['descripcion']) ?></p>
 </body>
 </html>
