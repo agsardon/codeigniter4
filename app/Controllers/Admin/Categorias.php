@@ -36,7 +36,7 @@ class Categorias extends BaseController
         $categoriaModel = new CategoriaModel();
         $categoriaModel->insert($data);
 
-        return redirect()->to('admin/categorias');
+        return redirect()->to('admin/categorias')->with('mensaje', 'Categoría creada con éxito');
     }
 
     public function edit($id)
@@ -55,13 +55,15 @@ class Categorias extends BaseController
             'titulo' => $this->request->getPost('titulo')
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('mensaje', 'Categoría modificada con éxito');
     }
 
     public function delete($id)
     {
         $categoriaModel = new CategoriaModel();
         $categoriaModel->delete($id);
+
+        session()->setFlashdata('mensaje', 'Categoría eliminada con éxito');
 
         return redirect()->back();
     }

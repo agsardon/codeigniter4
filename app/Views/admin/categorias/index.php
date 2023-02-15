@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Listado de categorías</h1>
+    <?= view('partials/_mensaje') ?>
     <a href="/admin/categorias/new">Crear</a>
     <table>
         <tr>

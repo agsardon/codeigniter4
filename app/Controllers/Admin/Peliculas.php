@@ -36,7 +36,7 @@ class Peliculas extends BaseController
         $peliculaModel = new PeliculaModel();
         $peliculaModel->insert($data);
 
-        return redirect()->to('admin/peliculas');
+        return redirect()->to('admin/peliculas')->with('mensaje', 'Película creada con éxito');
     }
 
     public function edit($id)
@@ -56,13 +56,15 @@ class Peliculas extends BaseController
             'descripcion' => $this->request->getPost('descripcion')
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('mensaje', 'Pelicula modificada con éxito');
     }
 
     public function delete($id)
     {
         $peliculaModel = new PeliculaModel();
         $peliculaModel->delete($id);
+
+        session()->setFlashdata('mensaje', 'Película eliminada con éxito');
 
         return redirect()->back();
     }

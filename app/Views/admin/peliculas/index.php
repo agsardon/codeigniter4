@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Listado de películas</h1>
+    <?= view('partials/_mensaje') ?>
     <a href="/admin/peliculas/new">Crear</a>
     <table>
         <tr>
