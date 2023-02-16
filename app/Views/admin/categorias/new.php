@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?= $this->extend('layouts\admin') ?>
+
+<?= $this->section('title') ?>
     <title>Crear categoría</title>
-</head>
-<body>
+<?= $this->endSection() ?>
+
+<?= $this->section('contenido') ?>
     <h1>Nueva categoría</h1>
     <form action="/admin/categorias/create" method="post">
         <?= view('admin/categorias/_form', ['action' => 'Crear']) ?>
     </form>
-</body>
-</html>
+<?= $this->endSection() ?>

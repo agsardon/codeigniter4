@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?= $this->extend('layouts\admin') ?>
+
+<?= $this->section('title') ?>
     <title>Crear película</title>
-</head>
-<body>
-    <h1>Nueva película</h1>
+<?= $this->endSection() ?>
+
+<?= $this->section('contenido') ?>
+    <h1>Crear película</h1>
     <form action="/admin/peliculas/create" method="post">
         <?= view('admin/peliculas/_form', ['action' => 'Crear']) ?>
     </form>
-</body>
-</html>
+<?= $this->endSection() ?>

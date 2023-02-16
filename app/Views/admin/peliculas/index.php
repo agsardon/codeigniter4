@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Películas</title>
-</head>
-<body>
+<?= $this->extend('layouts\admin') ?>
+
+<?= $this->section('title') ?>
+    <title>Listado películas</title>
+<?= $this->endSection() ?>
+
+<?= $this->section('contenido') ?>
     <h1>Listado de películas</h1>
     <?= view('partials/_mensaje') ?>
     <a href="/admin/peliculas/new">Crear</a>
@@ -34,6 +32,5 @@
             </tr>
         <?php endforeach ?>
     </table>
-</body>
-</html>
+<?= $this->endSection() ?>
 
