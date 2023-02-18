@@ -31,6 +31,14 @@ class Peliculas extends BaseController
 
     public function create()
     {
+        if(!$this->validate('peliculas')) {
+            session()->setFlashdata([
+                'errors' => $this->validator->listErrors()
+            ]);
+
+            return redirect()->back()->withInput();
+        }
+
         $data = $this->request->getPost();
 
         $peliculaModel = new PeliculaModel();
@@ -42,6 +50,7 @@ class Peliculas extends BaseController
     public function edit($id)
     {
         $peliculaModel = new PeliculaModel();
+       
         return view('admin/peliculas/edit', [
             'pelicula' => $peliculaModel->find($id)
         ]);
@@ -49,6 +58,14 @@ class Peliculas extends BaseController
 
     public function update($id)
     {
+        if(!$this->validate('peliculas')) {
+            session()->setFlashdata([
+                'errors' => $this->validator->listErrors()
+            ]);
+
+            return redirect()->back()->withInput();
+        }
+
         $peliculaModel = new PeliculaModel();
 
         $peliculaModel->update($id, [
@@ -57,6 +74,7 @@ class Peliculas extends BaseController
         ]);
 
         return redirect()->back()->with('mensaje', 'Pelicula modificada con éxito');
+         
     }
 
     public function delete($id)

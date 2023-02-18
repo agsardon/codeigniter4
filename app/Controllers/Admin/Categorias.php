@@ -31,6 +31,14 @@ class Categorias extends BaseController
 
     public function create()
     {
+        if(!$this->validate('categorias')) {
+            session()->setFlashdata([
+                'errors' => $this->validator->listErrors()
+            ]);
+
+            return redirect()->back()->withInput();
+        }
+
         $data = $this->request->getPost();
 
         $categoriaModel = new CategoriaModel();
@@ -49,6 +57,14 @@ class Categorias extends BaseController
 
     public function update($id)
     {
+        if(!$this->validate('categorias')) {
+            session()->setFlashdata([
+                'errors' => $this->validator->listErrors()
+            ]);
+
+            return redirect()->back()->withInput();
+        }
+
         $categoriaModel = new CategoriaModel();
 
         $categoriaModel->update($id, [

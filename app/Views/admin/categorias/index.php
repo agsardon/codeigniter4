@@ -14,7 +14,7 @@
             <th>Titulo</th>
             <th>Opciones</th>
         </tr>
-        <?php foreach ($categorias as $c) : ?>
+        <?php foreach (esc($categorias) as $c) : ?>
             <tr>
                 <td><?= $c['id'] ?></td>
                 <td><?= $c['titulo'] ?></td>

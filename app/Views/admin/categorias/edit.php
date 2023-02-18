@@ -5,6 +5,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('contenido') ?>
+    <?= view('partials/_form-errors') ?>
     <?= view('partials/_mensaje') ?>
     
     <form action="/admin/categorias/update/<?= $categoria['id'] ?>" method="post">

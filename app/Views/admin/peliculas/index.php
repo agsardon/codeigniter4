@@ -15,7 +15,7 @@
             <th>Descripción</th>
             <th>Opciones</th>
         </tr>
-        <?php foreach ($peliculas as $p) : ?>
+        <?php foreach (esc($peliculas) as $p) : ?>
             <tr>
                 <td><?= $p['id'] ?></td>
                 <td><?= $p['titulo'] ?></td>
