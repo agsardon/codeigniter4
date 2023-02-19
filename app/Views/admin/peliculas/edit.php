@@ -8,7 +8,7 @@
     <?= view('partials/_form-errors') ?>
     <?= view('partials/_mensaje') ?>
 
-    <form action="/admin/peliculas/update/<?= $pelicula['id'] ?>" method="post">
+    <form action="/admin/peliculas/update/<?= $pelicula->id ?>" method="post">
         <?= view('admin/peliculas/_form', ['action' => 'Actualizar']) ?>
     </form>
 <?= $this->endSection() ?>

@@ -16,14 +16,14 @@
         </tr>
         <?php foreach (esc($categorias) as $c) : ?>
             <tr>
-                <td><?= $c['id'] ?></td>
-                <td><?= $c['titulo'] ?></td>
+                <td><?= $c->id ?></td>
+                <td><?= $c->titulo ?></td>
                 <td>
-                    <a href="/admin/categorias/show/<?= $c['id'] ?>">Show</a>
-                    <a href="/admin/categorias/edit/<?= $c['id'] ?>">Edit</a>
+                    <a href="/admin/categorias/show/<?= $c->id ?>">Show</a>
+                    <a href="/admin/categorias/edit/<?= $c->id ?>">Edit</a>
                 </td>
                 <td>
-                    <form action="/admin/categorias/delete/<?= $c['id'] ?>" method="post">
+                    <form action="/admin/categorias/delete/<?= $c->id ?>" method="post">
                         <button type="submit">Eliminar</button>
                     </form>
                 </td>

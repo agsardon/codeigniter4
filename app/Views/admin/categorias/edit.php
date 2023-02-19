@@ -8,7 +8,7 @@
     <?= view('partials/_form-errors') ?>
     <?= view('partials/_mensaje') ?>
     
-    <form action="/admin/categorias/update/<?= $categoria['id'] ?>" method="post">
+    <form action="/admin/categorias/update/<?= $categoria->id ?>" method="post">
         <?= view('admin/categorias/_form', ['action' => 'Actualizar']) ?>
     </form>
 <?= $this->endSection() ?>

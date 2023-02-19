@@ -17,15 +17,15 @@
         </tr>
         <?php foreach (esc($peliculas) as $p) : ?>
             <tr>
-                <td><?= $p['id'] ?></td>
-                <td><?= $p['titulo'] ?></td>
-                <td><?= $p['descripcion'] ?></td>
+                <td><?= $p->id ?></td>
+                <td><?= $p->titulo ?></td>
+                <td><?= $p->descripcion ?></td>
                 <td>
-                    <a href="/admin/peliculas/show/<?= $p['id'] ?>">Show</a>
-                    <a href="/admin/peliculas/edit/<?= $p['id'] ?>">Edit</a>
+                    <a href="/admin/peliculas/show/<?= $p->id ?>">Show</a>
+                    <a href="/admin/peliculas/edit/<?= $p->id ?>">Edit</a>
                 </td>
                 <td>
-                    <form action="/admin/peliculas/delete/<?= $p['id'] ?>" method="post">
+                    <form action="/admin/peliculas/delete/<?= $p->id ?>" method="post">
                         <button type="submit">Eliminar</button>
                     </form>
                 </td>

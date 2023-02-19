@@ -8,4 +8,5 @@ class CategoriaModel extends Model
 {
     protected $table = 'categorias';
     protected $allowedFields = ['titulo'];
+    protected $returnType    = \App\Entities\Categoria::class;
 }
