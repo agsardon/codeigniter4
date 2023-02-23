@@ -18,8 +18,8 @@
         <?php foreach (esc($peliculas) as $p) : ?>
             <tr>
                 <td><?= $p->id ?></td>
-                <td><?= $p->titulo ?></td>
-                <td><?= $p->descripcion ?></td>
+                <td><?= esc($p->titulo) ?></td>
+                <td><?= esc($p->descripcion) ?></td>
                 <td>
                     <a href="/admin/peliculas/show/<?= $p->id ?>">Show</a>
                     <a href="/admin/peliculas/edit/<?= $p->id ?>">Edit</a>

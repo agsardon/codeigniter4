@@ -31,7 +31,7 @@ class Categorias extends BaseController
 
     public function create()
     {
-        if(!$this->validate('categorias')) {
+        if(!$this->validate('categorias')) { //validate uses the controller’s $this->request instance to get the data to be validated.
             session()->setFlashdata([
                 'errors' => $this->validator->listErrors()
             ]);
@@ -39,7 +39,7 @@ class Categorias extends BaseController
             return redirect()->back()->withInput();
         }
 
-        $data = $this->request->getPost();
+        $data['titulo'] = $this->request->getPost('titulo', FILTER_SANITIZE_SPECIAL_CHARS);
 
         $categoriaModel = new CategoriaModel();
         $categoriaModel->insert($data);
@@ -68,7 +68,7 @@ class Categorias extends BaseController
         $categoriaModel = new CategoriaModel();
 
         $categoriaModel->update($id, [
-            'titulo' => $this->request->getPost('titulo')
+            'titulo' => $this->request->getPost('titulo', FILTER_SANITIZE_SPECIAL_CHARS)
         ]);
 
         return redirect()->back()->with('mensaje', 'Categoría modificada con éxito');

@@ -71,4 +71,33 @@ class Validation extends BaseConfig
             ]
         ]
     ];
+
+    public $registro = [
+        'usuario' => [
+            'rules' => 'required|min_length[3]|max_Length[20]|is_unique[usuarios.usuario]',
+            'errors' => [
+                'required' => 'Debes introducir un nombre de usuario',
+                'is_unique' => 'Este usuario ya está registrado',
+                'min_length' => 'El usuario debe contener al menos 3 caracteres',
+                'max_length' => 'El usuario no puede exceder de 255 caracteres'
+            ]
+        ],
+        'email' => [
+            'rules' => 'required|min_length[3]|max_Length[70]|is_unique[usuarios.email]',
+            'errors' => [
+                'required' => 'Debes introducir una descripcion',
+                'is_unique' => 'Este email ya está registrado',
+                'min_length' => 'La descripción debe contener al menos 3 caracteres',
+                'max_length' => 'La descripción no puede exceder de 255 caracteres'
+            ]
+        ],
+        'contrasenya' => [
+            'rules' => 'required|min_length[5]|max_Length[15]',
+            'errors' => [
+                'required' => 'Es necesaria una contraseña',
+                'min_length' => 'La contraseña debe tener al menos 5 caracteres',
+                'max_length' => 'La contraseña debe tener al menos 15 caracteres'
+            ]
+        ]
+    ];
 }

@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Models\UsuarioModel;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -34,7 +36,15 @@ $routes->get('/', 'Home::index');
 $routes->group('admin', function($routes){
     $routes->presenter('peliculas', ['controller' => 'Admin\Peliculas']);
     $routes->presenter('categorias', ['controller' => 'Admin\Categorias']);
+    // $routes->get('usuario/crear', [\App\Controllers\Web\Usuario::class, 'create']);
+    // $routes->get('usuario/probar-contrasena', '\App\Controllers\Web\Usuario::verificaContrasenya');
 });
+
+$routes->get('login', '\App\Controllers\Web\Usuario::login', ['as' => 'usuario.login']);
+$routes->post('login-post', '\App\Controllers\Web\Usuario::loginPost', ['as' => 'usuario.login-post']);
+$routes->get('registro', '\App\Controllers\Web\Usuario::registro', ['as' => 'usuario.registro']);
+$routes->post('registro-post', '\App\Controllers\Web\Usuario::create', ['as' => 'usuario.create']);
+$routes->get('logout', '\App\Controllers\Web\Usuario::logout', ['as' => 'usuario.logout']);
 
 /*
  * --------------------------------------------------------------------

@@ -39,7 +39,8 @@ class Peliculas extends BaseController
             return redirect()->back()->withInput();
         }
 
-        $data = $this->request->getPost();
+        $data['titulo'] = $this->request->getPost('titulo', FILTER_SANITIZE_SPECIAL_CHARS);
+        $data['descripcion'] = $this->request->getPost('descripcion', FILTER_SANITIZE_SPECIAL_CHARS);
 
         $peliculaModel = new PeliculaModel();
         $peliculaModel->insert($data);
@@ -69,8 +70,8 @@ class Peliculas extends BaseController
         $peliculaModel = new PeliculaModel();
 
         $peliculaModel->update($id, [
-            'titulo' => $this->request->getPost('titulo'),
-            'descripcion' => $this->request->getPost('descripcion')
+            'titulo' => $this->request->getPost('titulo', FILTER_SANITIZE_SPECIAL_CHARS),
+            'descripcion' => $this->request->getPost('descripcion', FILTER_SANITIZE_SPECIAL_CHARS)
         ]);
 
         return redirect()->back()->with('mensaje', 'Pelicula modificada con éxito');
